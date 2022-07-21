@@ -12,12 +12,12 @@ clear = 'clear'
 
 def _greeting():
     os.system(clear)
-    message = 'Installing list of software...'
+    message = 'Installing list of software...\n🐍'
     for letter in message:
         sys.stdout.write(letter)
         sys.stdout.flush()
         time.sleep(0.1)
-    time.sleep(1)
+    time.sleep(2)
 
 
 def _upgrade():
