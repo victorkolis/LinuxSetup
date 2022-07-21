@@ -29,12 +29,12 @@ software_list = [
 ]
 
 
-def _install():
+def _install(program_list):
     _greeting()
     _upgrade()
-    for software in software_list:
+    for software in program_list:
         os.system(install.format(software))
     _upgrade()
 
 
-_install()
+_install(software_list)
