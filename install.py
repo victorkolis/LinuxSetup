@@ -6,6 +6,7 @@ import time
 
 # commands
 install = 'sudo apt install {} -y'
+classic_install = 'sudo snap install --classic {}'
 upgrade = 'sudo apt upgrade -y'
 clear = 'clear'
 
@@ -25,16 +26,29 @@ def _upgrade():
 
 
 software_list = [
-    'ndcu', 'gimp', 'ranger', 'firefox'
+    'ndcu', 'gimp', 'ranger', 'firefox', 'git', '', '',
+    ''
 ]
 
+classic_snap_software = [
+    'pycharm-community', 'ffmpeg', 'ffmpeg-integration-gplv3', 
+    'ffmpeg-integration-lgpl'
+]
 
-def _install(program_list):
+def _install(apt_list, snap_list):
     _greeting()
     _upgrade()
-    for software in program_list:
+
+    # Installing the apt software
+    for software in apt_list:
         os.system(install.format(software))
     _upgrade()
 
+    # Installing the snap software
+    for software in snap_list:
+        os.system(classic_install.format(software))
+    _upgrade()
 
-_install(software_list)
+
+_install(software_list, classic_snap_software)
+
